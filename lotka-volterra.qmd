@@ -80,8 +80,10 @@ init_cond <- c(V = 10, P = 4)
 # Prepare the series of differential equations as a function ----
 lv_equations <- function(time, init_cond, parameters) {
   with(as.list(c(init_cond, parameters)), {
+    
     dVdt = r * V - alpha * V * P
     dPdt = beta * V * P - q * P
+    
     return(list(c(dVdt, dPdt)))
   })
 }
